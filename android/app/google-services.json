@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "503801609359",
+    "project_id": "evently-flutterc15",
+    "storage_bucket": "evently-flutterc15.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503801609359:android:20e7d4cfd86231f083c4fa",
+        "android_client_info": {
+          "package_name": "com.example.evently_c15_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503801609359-geu3toak4k311u37gbq61gadesm38fkh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl71hGB_3VIhxWpisqQonz6_18ybzbxu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503801609359-geu3toak4k311u37gbq61gadesm38fkh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "503801609359-mipcpu5mfbhhihe1lbs19h391gc3uvni.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventlyC15Flutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
