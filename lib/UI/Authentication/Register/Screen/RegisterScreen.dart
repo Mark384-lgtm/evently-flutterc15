@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:evently_c15_flutter/ThemeProvider.dart';
 import 'package:evently_c15_flutter/UI/Home/Screen/HomeScreen.dart';
+import 'package:evently_c15_flutter/core/remote/network/FireStoreManger.dart';
 import 'package:evently_c15_flutter/core/resources/AssetsManger.dart';
 import 'package:evently_c15_flutter/core/reusable_components/AppElevatedButton.dart';
 import 'package:evently_c15_flutter/core/reusable_components/DialogeUtils.dart';
@@ -12,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../../../../core/resources/Constants.dart';
 import '../../../../core/resources/StringsManger.dart';
 import '../../../../core/reusable_components/AppTextFormField.dart';
+import 'package:evently_c15_flutter/model/User.dart' as MyUser;
 import '../../../../core/reusable_components/DialogeUtils.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -33,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     bool isValidState = false;
-    userName_controller =TextEditingController();
+    userName_controller = TextEditingController();
     email_controller = TextEditingController();
     password_controller = TextEditingController();
     Repassword_controller = TextEditingController();
@@ -108,11 +110,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               AppElevatedButton(
                 text: StringsManager.create_account,
-                onPress: ()async {
+                onPress: () async {
                   isValidState = formKey.currentState!.validate();
 
                   if (isValidState) {
-                     createAccount();
+                    createAccount();
                   }
                 },
               ),
@@ -182,22 +184,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
             email: email_controller.text.trim(),
             password: password_controller.text,
           );
+      await FireStoreManger.saveUser(
+        MyUser.User(
+          id: credentials.user?.uid,
+          name: userName_controller.text,
+          email: email_controller.text.trim(),
+        ),
+      );
       Navigator.pop(context);
-      DialogUtils.showmessegeDialoge(context, StringsManager.addedSucessfully.tr());
-      Navigator.pushNamedAndRemoveUntil(context, HomeScreen.routeName,(route) => false,);
+      DialogUtils.showmessegeDialoge(
+        context,
+        StringsManager.addedSucessfully.tr(),
+      );
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        HomeScreen.routeName,
+        (route) => false,
+      );
       print(credentials.user?.uid);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'weak-password') {
-        DialogUtils.showmessegeDialoge(context,StringsManager.weak_password.tr());
+        DialogUtils.showmessegeDialoge(
+          context,
+          StringsManager.weak_password.tr(),
+        );
       } else if (e.code == 'email-already-in-use') {
-        DialogUtils.showmessegeDialoge(context,StringsManager.already_exists.tr());
-      }else{
-        DialogUtils.showmessegeDialoge(context,e.toString());
+        DialogUtils.showmessegeDialoge(
+          context,
+          StringsManager.already_exists.tr(),
+        );
+      } else {
+        DialogUtils.showmessegeDialoge(context, e.toString());
       }
     } catch (e) {
       Navigator.pop(context);
-      DialogUtils.showmessegeDialoge(context,e.toString());
+      DialogUtils.showmessegeDialoge(context, e.toString());
     }
   }
 

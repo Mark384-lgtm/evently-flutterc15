@@ -34,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
+            onPressed: ()async {
+              await FirebaseAuth.instance.signOut();
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 LoginScreen.routName,

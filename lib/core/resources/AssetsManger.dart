@@ -11,5 +11,6 @@ abstract class AssetsMnager {
   static const hot_trending="assets/Images/hot-trending.png";
   static const beding_creative_1="assets/Images/being-creative (1).png";
   static const beding_creative_2="assets/Images/being-creative (2).png";
+  static const goolge_icon="assets/Images/goolgeIcon.svg";
 
 }
