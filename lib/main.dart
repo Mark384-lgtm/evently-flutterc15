@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:evently_c15_flutter/ThemeProvider.dart';
+import 'package:evently_c15_flutter/UI/AddEvent/Screen/AddEvent.dart';
 import 'package:evently_c15_flutter/UI/Authentication/ForgetPassword/Screen/ForgetPasswordScreen.dart';
 import 'package:evently_c15_flutter/UI/Authentication/Register/Screen/RegisterScreen.dart';
 import 'package:evently_c15_flutter/UI/Home/Screen/HomeScreen.dart';
 import 'package:evently_c15_flutter/UI/Onboarding/Screen/OnBoardingScreen.dart';
 import 'package:evently_c15_flutter/UI/Splash/screen/SplashScreen.dart';
 import 'package:evently_c15_flutter/UI/Authentication/Login/Screen/Login.dart';
+import 'package:evently_c15_flutter/UserProvider.dart';
 import 'package:evently_c15_flutter/core/remote/local/PrefManger.dart';
 import 'package:evently_c15_flutter/core/resources/AppTheme.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +26,13 @@ void main() async {
       supportedLocales: [Locale("en"), Locale("ar")],
       path: 'assets/translations',
       startLocale: Locale("ar"),
-      child: ChangeNotifierProvider(
-        create: (context) => ThemeProvider()..init(),
+      child: MultiProvider(providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()..init(),),
+        ChangeNotifierProvider(create: (context) => UserProvidedr(),),
+      ],
+
+
+
         child: Builder(
           builder: (context) {
             ThemeProvider themeprovider = Provider.of<ThemeProvider>(context);
@@ -46,7 +53,8 @@ void main() async {
                 RegisterScreen.routeName: (_) => RegisterScreen(),
                 ForgetPasswordScreen.routeName: (_) => ForgetPasswordScreen(),
                 HomeScreen.routeName:(_)=>HomeScreen(),
-                onBoardingScreen.routeNme:(_)=>onBoardingScreen()
+                onBoardingScreen.routeNme:(_)=>onBoardingScreen(),
+                AddEvent.routeName:(_)=>AddEvent()
               },
             );
           },

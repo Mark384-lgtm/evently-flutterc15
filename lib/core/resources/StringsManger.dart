@@ -37,4 +37,5 @@ abstract class StringsManager {
   static const onBoardingTitle2="onBoardingTitle2";
   static const onBoardingTitle3="onBoardingTitle3";
   static const LoginWithGoogle ="loginWithGoolge";
+  static var language =  "language";
 }

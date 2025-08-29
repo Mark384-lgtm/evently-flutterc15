@@ -8,8 +8,10 @@ class AppTextFormField extends StatefulWidget {
   String hint;
   IconData? prefixIcon;
   bool isPasswordField;
+  int maxLine;
 
   AppTextFormField({
+    this.maxLine=1,
     required this.validationAlgorithm,
     required this.controller,
     required this.hint,
@@ -31,6 +33,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         horizontal: MediaQuery.of(context).size.width * 0.04,
       ),
       child: TextFormField(
+        maxLines: widget.maxLine ,
         keyboardType: widget.isPasswordField
              ? TextInputType.visiblePassword
             : TextInputType.emailAddress,

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:evently_c15_flutter/core/resources/ColorManger.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DialogUtils {
   static showloadingDialoge(BuildContext context) {
@@ -38,5 +39,9 @@ class DialogUtils {
         );
       },
     );
+  }
+
+  static showToast(String msg) {
+    Fluttertoast.showToast(msg: msg, gravity: ToastGravity.CENTER);
   }
 }

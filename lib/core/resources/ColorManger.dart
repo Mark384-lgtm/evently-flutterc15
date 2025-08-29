@@ -7,4 +7,5 @@ abstract class ColorManger {
   static const lightMode_textColor=Color(0xff1C1C1C);
   static const darkGrey =Color(0xff7B7B7B);
   static const lightGrey=Color(0xffF4EBDC);
+  static const offwhite = Color(0xffF2FEFF);
 }

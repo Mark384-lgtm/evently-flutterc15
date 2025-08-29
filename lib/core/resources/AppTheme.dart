@@ -10,6 +10,7 @@ abstract class AppTheme {
       primary: ColorManger.primaryColor,
       onPrimary: Colors.black,
       tertiary: ColorManger.lightBackGroundColor,
+      onTertiary: ColorManger.primaryColor,
       outline: ColorManger.darkGrey,
       onSecondary: ColorManger.darkGrey,
       secondary: Colors.black
@@ -19,6 +20,32 @@ abstract class AppTheme {
       centerTitle: true,
       backgroundColor: Colors.transparent,
     ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: ColorManger.primaryColor,
+        shape: StadiumBorder(
+            side: BorderSide(
+                color: Colors.white,
+                width: 5
+            )
+        )
+    ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: ColorManger.primaryColor,
+        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        selectedLabelStyle: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700
+        ),
+        unselectedLabelStyle: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700
+        )
+    ),
+
 
     textTheme: TextTheme(
       titleMedium: TextStyle(
@@ -32,6 +59,10 @@ abstract class AppTheme {
         fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
+
+        headlineMedium: TextStyle(
+            color: Colors.white,
+        )
     ),
 
   );
@@ -41,6 +72,7 @@ abstract class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: ColorManger.primaryColor,
       primary: ColorManger.primaryColor,
+      onTertiary: ColorManger.DarkBackGroundColor,
       onPrimary: Colors.white,
       tertiary: ColorManger.DarkBackGroundColor,
       outline: ColorManger.primaryColor,
@@ -54,6 +86,32 @@ abstract class AppTheme {
       backgroundColor: Colors.transparent,
     ),
 
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: ColorManger.DarkBackGroundColor,
+        shape: StadiumBorder(
+            side: BorderSide(
+                color: Colors.white,
+                width: 5
+
+            )
+        )
+
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: ColorManger.DarkBackGroundColor,
+        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        selectedLabelStyle: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700
+        ),
+        unselectedLabelStyle: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700
+        )
+    ),
+
     textTheme: TextTheme(
       titleMedium: TextStyle(
         color: ColorManger.primaryColor,
@@ -65,6 +123,9 @@ abstract class AppTheme {
         fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
+      headlineMedium: TextStyle(
+        color: Colors.white
+      )
     ),
   );
 }

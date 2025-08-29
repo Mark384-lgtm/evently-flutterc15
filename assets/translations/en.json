@@ -37,5 +37,12 @@
   "onBoardingTitle1": "Find Events That Inspire You",
   "onBoardingTitle2": "Effortless Event Planning",
   "onBoardingTitle3": "Connect with Friends & Share Moments",
-  "loginWithGoolge": "Login with Google"
+  "loginWithGoolge": "Login with Google",
+  "language": "language",
+  "home": "Home",
+  "map": "Map",
+  "love": "Love",
+  "profile": "Profile",
+  "logout": "Logout",
+  "welcome": "Welcome Back ✨"
 }
